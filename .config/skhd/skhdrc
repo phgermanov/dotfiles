@@ -1,0 +1,8 @@
+# open Microsoft Teams
+alt + shift + ctrl - s : open -a "Microsoft Teams"
+
+# open Arc browser
+alt + shift + ctrl - a : open -a "Arc"
+
+# open Alacritty
+alt + shift + ctrl - t : open -a "Alacritty"
