@@ -22,8 +22,4 @@ return {
       opts.sections.lualine_z = {}
     end,
   },
-  {
-    "folke/flash.nvim",
-    enable = false,
-  },
 }
