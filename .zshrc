@@ -40,3 +40,4 @@ source <(kubectl completion zsh)
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"
+export XDG_CONFIG_HOME="$HOME/.config"

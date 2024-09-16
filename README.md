@@ -13,6 +13,7 @@ bat
 eza
 fzf
 go
+felixkratz/formulae/borders
 koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
 kubernetes-cli
