@@ -3,12 +3,11 @@
 -- Add any additional keymaps here
 --
 
-vim.keymap.set("n", "<C-u", "<C-u>zz")
-vim.keymap.set("n", "<C-d", "<C-d>zz")
-
 -- Prevent deleting from also copying
 vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true })
 vim.keymap.set("n", "dd", '"_dd', { noremap = true })
 
 vim.keymap.set("n", "<C-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true })
