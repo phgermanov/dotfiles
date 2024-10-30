@@ -36,6 +36,10 @@ return {
     end,
   },
   {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp",
   },
