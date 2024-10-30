@@ -36,24 +36,7 @@ return {
     end,
   },
   {
-    "akinsho/bufferline.nvim",
-    -- opts = function(_, opts)
-    --   vim.opt.mousemoveevent = true
-    --   opts.options.separator_style = "slope"
-    --   opts.options.hover = {
-    --     enabled = true,
-    --     delay = 0,
-    --     reveal = { "close" },
-    --   }
-    -- end,
-    enabled = false,
-  },
-  {
-    "romgrk/barbar.nvim",
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
-    opts = {},
-    version = "^1.0.0", -- optional: only update when a new 1.x version is released
+    "iguanacucumber/magazine.nvim",
+    name = "nvim-cmp",
   },
 }
