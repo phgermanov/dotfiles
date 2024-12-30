@@ -11,3 +11,6 @@ vim.keymap.set("n", "<C-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent
 vim.keymap.set("n", "<C-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true })
+
+-- vim.keymap.set("n", "<C-U>", "<C-U>zz", { noremap = true })
+-- vim.keymap.set("n", "<C-D>", "<C-D>zz", { noremap = true })

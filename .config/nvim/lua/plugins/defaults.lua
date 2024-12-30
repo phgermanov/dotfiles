@@ -1,46 +1,41 @@
+local function removeStart(t, n)
+  for _ = 1, n do
+    table.remove(t, 1)
+  end
+end
+
+local function removeEnd(t, n)
+  for _ = 1, n do
+    table.remove(t)
+  end
+end
+
 return {
-  {
-    "ahmedkhalf/project.nvim",
-    config = function(_, opts)
-      opts.detection_methods = { "lsp", "pattern" }
-      opts.patterns = {
-        ".git",
-        ".hg",
-        ".svn",
-      }
-      require("project_nvim").setup(opts)
-      require("lazyvim.util").on_load("telescope.nvim", function()
-        require("telescope").load_extension("projects")
-      end)
-    end,
-  },
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      table.remove(opts.sections.lualine_c)
-      opts.sections.lualine_x = {}
-      opts.sections.lualine_z = {}
-      opts.sections.lualine_a = {
+      opts.options.section_separators = { left = "", right = "" }
+      opts.sections.lualine_b = {}
+      removeStart(opts.sections.lualine_c, 1)
+      removeEnd(opts.sections.lualine_c, 1)
+      removeStart(opts.sections.lualine_x, 5)
+      opts.sections.lualine_y = {}
+      opts.sections.lualine_z = {
         function()
-          local mc = require("multicursor-nvim")
-          local status = {}
-          if mc.hasCursors() then
-            status.icon = " 󰛡"
-          else
-            status.icon = ""
-          end
-          local vim_mode = require("lualine.components.mode")()
-          return vim_mode .. status.icon
+          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
         end,
       }
+      local catppuccin = require("catppuccin.utils.lualine")("mocha")
+      catppuccin.normal.c = { bg = "#1e1e2e" }
+      catppuccin.normal.z = { bg = "#1e1e2e" }
+      catppuccin.insert.z = { bg = "#1e1e2e" }
+      catppuccin.visual.z = { bg = "#1e1e2e" }
+      catppuccin.terminal.z = { bg = "#1e1e2e" }
+      opts.options.theme = catppuccin
     end,
   },
   {
     "akinsho/bufferline.nvim",
     enabled = false,
-  },
-  {
-    "iguanacucumber/magazine.nvim",
-    name = "nvim-cmp",
   },
 }
