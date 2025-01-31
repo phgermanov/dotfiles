@@ -38,4 +38,26 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        formatters = {
+          file = {
+            filename_first = true,
+          },
+        },
+        reverse = true,
+        layout = {
+          preset = "telescope",
+        },
+      },
+    },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = { enabled = true },
+    },
+  },
 }
