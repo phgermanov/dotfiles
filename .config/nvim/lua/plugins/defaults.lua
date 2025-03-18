@@ -51,6 +51,14 @@ return {
         layout = {
           preset = "telescope",
         },
+        sources = {
+          files = {
+            hidden = true,
+          },
+          explorer = {
+            hidden = true,
+          },
+        },
       },
     },
   },

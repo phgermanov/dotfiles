@@ -7,4 +7,6 @@ vim.g.loaded_netrwFileHandlers = 1
 vim.g.loaded_netrw_gitignore = 1
 vim.g.loaded_netrw = 1
 vim.opt.wrap = true
-vim.opt.statuscolumn     = [[%!v:lua.require'utils.statuscolumn'.statuscolumn()]]
+vim.opt.statuscolumn = [[%!v:lua.require'utils.statuscolumn'.statuscolumn()]]
+vim.g.lazyvim_picker = "snacks"
+
