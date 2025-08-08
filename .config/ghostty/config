@@ -1,0 +1,39 @@
+# Theme
+theme = "catppuccin-mocha"
+
+# Font configuration
+font-family = "mononoki"
+font-family-italic = "mononoki-italic"
+font-family-bold = "mononoki-bold"
+font-family-bold-italic = "mononoki-bold-italic"
+font-size = 20
+
+# Adjust line height (20% increase like kitty's 120%)
+adjust-cell-height = 20%
+
+# Window appearance
+window-padding-x = 0
+window-padding-y = 0
+window-decoration = false
+
+# Cursor
+cursor-style = block
+
+# Mouse
+mouse-hide-while-typing = true
+
+keybind = ctrl+period=text:\x1b[46;5u
+keybind = ctrl+comma=text:\x1b[44;5u
+keybind = cmd+k=text:\x0c
+
+# Window behavior
+quit-after-last-window-closed = true
+
+shell-integration-features = no-cursor
+
+custom-shader = shaders/cursor_blaze.glsl
+# custom-shader = shaders/cursor_blaze_no_trail.glsl
+custom-shader = shaders/cursor_smear.glsl
+# custom-shader = shaders/cursor_smear_fade.glsl
+
+custom-shader = shaders/bloom025.glsl

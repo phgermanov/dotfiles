@@ -41,3 +41,7 @@ source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"
 export XDG_CONFIG_HOME="$HOME/.config"
+PATH="$PATH":"$HOME/.local/scripts/"
+bindkey -s ^f "tmux-sessionizer\n"
+
+export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
