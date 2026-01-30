@@ -25,7 +25,6 @@ export PATH="$PATH:$GOPATH/bin"
 alias k=kubectl
 alias q=exit
 alias v=nvim
-alias cd=z
 alias ls="eza -a --icons=always"
 alias cat=bat
 alias fzf="fzf --height 40% --layout reverse --border"

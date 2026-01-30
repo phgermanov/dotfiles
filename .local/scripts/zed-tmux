@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Only run tmux if we're in an interactive terminal
+if [[ -t 0 && -t 1 ]]; then
+  session_name=$(basename "$PWD" | tr '.:' '_')
+  exec tmux new-session -A -s "$session_name" -c "$PWD"
+else
+  # Non-interactive: use zsh for env capture
+  exec zsh "$@"
+fi
