@@ -1,0 +1,37 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "args": [],
+    "env": {},
+    "hide": "on_success",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "ghdash",
+    "command": "GH_HOST=github.tools.sap gh dash",
+    "args": [],
+    "env": {},
+    "hide": "on_success",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "telescope_files",
+    "command": "zed \"$(tv --source-command 'fd --type f --hidden --exclude .git')\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
+    "label": "telescope_grep",
+    "command": "zed \"$(tv --source-command 'rg --hidden --glob !.git --line-number .')\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  }
+]

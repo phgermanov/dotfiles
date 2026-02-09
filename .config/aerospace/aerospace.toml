@@ -4,7 +4,12 @@
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
+after-login-command = [
+  'exec-and-forget open -a "Microsoft Teams"',
+  'exec-and-forget open -a "Zen Browser"',
+  'exec-and-forget open -a "Ghostty"',
+  'exec-and-forget open -a "Zed"',
+]
 
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
@@ -230,3 +235,27 @@ W = 'secondary'
 X = 'secondary'
 Y = 'secondary'
 Z = 'secondary'
+
+# App-to-workspace assignments
+# Teams main window (Chat, Calendar, Activity, Teams tabs) -> workspace C
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+if.window-title-regex-substring = '^(Chat|Calendar|Activity|Teams|Calls) \|'
+run = 'move-node-to-workspace C'
+
+# Teams call/meeting windows (everything else) -> workspace 2
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'zen.browser'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace Z'

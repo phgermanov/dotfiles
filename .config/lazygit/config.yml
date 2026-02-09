@@ -1,3 +1,8 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --syntax-theme Catppuccin-mocha --paging=never --diff-highlight
+
 customCommands:
   - key: "v"
     context: "localBranches"
