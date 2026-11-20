@@ -1,5 +1,8 @@
-# Personal MacBook user config: Karabiner.
-{ link, ... }:
+# Personal MacBook user config.
+{ pkgs, ... }:
 {
-  xdg.configFile."karabiner".source = link ".config/karabiner";
+  home.packages = with pkgs; [
+    testdisk
+    zig # replaces zvm
+  ];
 }

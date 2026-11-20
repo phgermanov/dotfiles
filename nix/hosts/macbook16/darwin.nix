@@ -1,13 +1,13 @@
-# Personal MacBook system config: AeroSpace and borders from Homebrew taps.
+# Personal MacBook system config.
 { ... }:
 {
   homebrew = {
-    enable = true;
-    taps = [
-      "nikitabobko/tap"
-      "felixkratz/formulae"
+    taps = [ "felixkratz/formulae" ];
+    brews = [
+      "felixkratz/formulae/borders"
+      "diskonaut" # not in nixpkgs
     ];
-    brews = [ "felixkratz/formulae/borders" ];
-    casks = [ "nikitabobko/tap/aerospace" ];
+    # TODO: add the personal-only App Store apps after `mas list` confirms their IDs.
+    masApps = { };
   };
 }

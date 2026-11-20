@@ -24,26 +24,65 @@ in
   xdg.enable = true;
 
   home.packages = with pkgs; [
+    # Shell tools
     delta # lazygit pager
     eza
     fd
-    go
     jq
     lazygit
     neovim
-    nodejs
     ripgrep
+
+    # Default runtimes. Project pins (mise.toml) go through mise on the Macs.
+    go
+    nodejs
+    rustup # toolchains stay in ~/.rustup
+    uv # Python interpreters (uv python) and Python CLIs (uv tool)
+
+    # Go tools. Anything nixpkgs lacks, such as counterfeiter, stays on go install.
+    air
+    cobra-cli
+    delve
+    go-tools # staticcheck
+    gofumpt
+    golangci-lint
+    gomodifytags
+    gopls
+    gotests
+    impl
+    mockgen
+    sqlc
+    templ
+
+    # Secrets
+    age
+    gnupg
+    sops
+
+    # Files and data. exiftool, imagemagick and yt-dlp are Mac-only (nix/home/darwin.nix).
+    television
+    tlrc
+    wget
+    yazi
+    yq-go
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     GOPATH = "$HOME/go";
+    # Nix's npm can't write global packages into the store.
+    NPM_CONFIG_PREFIX = "$HOME/.npm-global";
   };
 
+  # Binaries that self-updating tools and language installers put in ~:
+  # Claude Code, pi-bolt, uv tools, go install, cargo install, bun and npm -g.
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/bin"
     "$HOME/go/bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.bun/bin"
+    "$HOME/.npm-global/bin"
   ];
 
   programs.zsh = {
@@ -65,12 +104,9 @@ in
       cat = "bat";
       fzf = "fzf --height 40% --layout reverse --border";
     };
-    # rustup installs outside Nix and puts cargo on PATH through this file.
-    envExtra = ''
-      [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-    '';
     initContent = ''
       typeset -U path
+      export GPG_TTY="$(tty)"
       (( $+commands[pi-bolt] )) && alias pi=pi-bolt
     '';
   };
@@ -98,7 +134,10 @@ in
   };
 
   # No global user.name or user.email: every repo sets its own identity.
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    ignores = [ "**/.claude/settings.local.json" ];
+  };
 
   # Only config.yml is managed. hosts.yml holds the login and stays writable by gh.
   programs.gh = {

@@ -13,7 +13,7 @@
   },
   {
     "label": "ghdash",
-    "command": "GH_HOST=github.tools.sap gh dash",
+    "command": "gh dash",
     "args": [],
     "env": {},
     "hide": "on_success",

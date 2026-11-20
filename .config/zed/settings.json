@@ -31,15 +31,7 @@
   },
   "ssh_connections": [
     {
-      "host": "github-wdf",
-      "projects": []
-    },
-    {
       "host": "github",
-      "projects": []
-    },
-    {
-      "host": "github-tools",
       "projects": []
     },
     {
@@ -132,9 +124,6 @@
     "dark": "Catppuccin Mocha - No Italics"
   },
   "terminal": {
-    "shell": {
-      "program": "/Users/C5386120/.local/scripts/zed-tmux"
-    },
     "toolbar": {
       "breadcrumbs": false
     },
